@@ -9,7 +9,7 @@ using WebSuiBeauty.Data.Abstract;
 
 namespace WebSuiBeauty.Data
 {
-    [Table("Products")]
+    [Table("Product")]
 
     public class Product : Auditable
     {

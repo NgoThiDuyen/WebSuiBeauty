@@ -5,14 +5,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<WebSuiBeauty.Models.WebSuiBeautyDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<WebSuiBeauty.Data.WebSuiBeautyDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(WebSuiBeauty.Models.WebSuiBeautyDbContext context)
+        protected override void Seed(WebSuiBeauty.Data.WebSuiBeautyDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

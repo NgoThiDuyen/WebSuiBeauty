@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebSuiBeauty.Models.Abstract
+namespace WebSuiBeauty.Data.Abstract
 {
     public interface IAuditable
     {

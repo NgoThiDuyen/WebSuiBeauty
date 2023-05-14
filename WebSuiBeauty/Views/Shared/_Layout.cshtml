@@ -3,35 +3,63 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - SuiBeauty</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Assets/Style/responsive.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
-            </div>
+    <style>
+        .navbar {
+            width: 100%;
+            float: left;
+            background-color: #fef4ec;
+            height: auto;
+            background-size: 100%;
+        }
+    </style>
+
+    <!-- header section start -->
+    <div class="header_section">
+        <div class="container-fluid">
+            <nav class="navbar fixed-top justify-content-between">
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="index.html">Trang chủ</a>
+                    <a href="products.html">Sản phẩm</a>
+                    <a href="about.html">Giới thiệu</a>
+                    <a href="client.html">Khách hàng</a>
+                    <a href="contact.html">Liên hệ</a>
+                </div>
+                <span class="toggle_icon" style="padding-left:1rem" onclick="openNav()"><img style="height: 70%;width:70%" src="~/Assets/Images/toggle-icon.png"></span>
+                <a class="logo" href="index.html"><img src="~/Assets/Images/logo.png"></a>
+                <form class="form-inline ">
+                    <div class="login_text" style="padding-right:1rem">
+                        <ul>
+                            <li><a href="#"><img src="~/Assets/Images/user-icon.png"></a></li>
+                            <li><a href="#"><img src="~/Assets/Images/bag-icon.png"></a></li>
+                            <li><a href="#"><img src="~/Assets/Images/search-icon.png"></a></li>
+                        </ul>
+                    </div>
+                </form>
+            </nav>
         </div>
-    </nav>
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
+    <script>
+        $(window).scroll(function () {
+            var scrollTop = $(this).scrollTop();
 
+            if (scrollTop > 50) {
+                $('body').addClass('scrolling-navbar');
+            } else {
+                $('body').removeClass('scrolling-navbar');
+            }
+        });
+    </script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

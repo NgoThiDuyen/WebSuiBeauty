@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace WebSuiBeauty.Models.Abstract
+namespace WebSuiBeauty.Data.Abstract
 {
     public abstract class Auditable : IAuditable
     {

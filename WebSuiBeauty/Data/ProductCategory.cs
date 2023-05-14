@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using WebSuiBeauty.Models.Abstract;
+using WebSuiBeauty.Data.Abstract;
 
-namespace WebSuiBeauty.Models
+namespace WebSuiBeauty.Data
 {
     [Table("ProductCategory")]
     public class ProductCategory : Auditable

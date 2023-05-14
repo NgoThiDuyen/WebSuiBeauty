@@ -12,11 +12,6 @@
 }
 
 
-/*****---------------------------------------- 1) font-family: 'Rajdhani', sans-serif;
- 2) font-family: 'Poppins', sans-serif;
- ----------------------------------------*****/
-
-
 /*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
 
 @import url(animate.min.css);
@@ -31,7 +26,7 @@
 @import url(jquery-ui.css);
 @import url(nice-select.css);
 
-/*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
+/*--------------------------------------------------------------------- style ---------------------------------------------------------------------*/
 
 * {
     box-sizing: border-box !important;
@@ -43,6 +38,8 @@ html {
 }
 
 body {
+    width: auto;
+    height: auto;
     color: #666666;
     font-size: 14px;
     line-height: 1.80857;
@@ -228,13 +225,7 @@ button {
 
 /* header section start */
 
-.header_section {
-    width: 100%;
-    float: left;
-    background-color: #fef4ec;
-    height: auto;
-    background-size: 100%;
-}
+
 
 .bg-light {
     background-color: transparent!important;
@@ -327,7 +318,6 @@ button {
 }
 
 
-/* header section end */
 
 
 /* banner section start */

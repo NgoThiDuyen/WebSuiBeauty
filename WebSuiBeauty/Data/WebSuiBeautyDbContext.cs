@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace WebSuiBeauty.Models
+namespace WebSuiBeauty.Data
 {
     public class WebSuiBeautyDbContext : DbContext
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services.Description;
 
-namespace WebSuiBeauty.Models
+namespace WebSuiBeauty.Data
 {
     [Table("ContentTag")]
     public class ContentTag

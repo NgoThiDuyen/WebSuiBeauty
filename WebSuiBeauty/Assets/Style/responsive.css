@@ -4,6 +4,20 @@
 /*------------------------------------------------------------------- 991px x 768px ---------------------------------------------------------------------*/
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+        color: #666666;
+        font-size: 14px;
+        line-height: 1.80857;
+        font-weight: normal;
+        overflow-x: hidden;
+        font-family: 'Open Sans', sans-serif;
+    }
     .header-search {
         padding: 15px 0px;
     }
@@ -13,6 +27,20 @@
 /*------------------------------------------------------------------- 767px x 599px ---------------------------------------------------------------------*/
 
 @media only screen and (min-width: 599px) and (max-width: 767px) {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        width:100%;
+        height:100%;
+        color: #666666;
+        font-size: 14px;
+        line-height: 1.80857;
+        font-weight: normal;
+        overflow-x: hidden;
+        font-family: 'Open Sans', sans-serif;
+    }
     .logo {
         text-align: center;
     }
@@ -85,6 +113,20 @@
 /*------------------------------------------------------------------- 599px x 280px ---------------------------------------------------------------------*/
 
 @media only screen and (min-width: 280px) and (max-width: 599px) {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+        color: #666666;
+        font-size: 14px;
+        line-height: 1.80857;
+        font-weight: normal;
+        overflow-x: hidden;
+        font-family: 'Open Sans', sans-serif;
+    }
     .cart-content-right {
         padding-bottom: 5px;
     }
@@ -128,6 +170,20 @@
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+        color: #666666;
+        font-size: 14px;
+        line-height: 1.80857;
+        font-weight: normal;
+        overflow-x: hidden;
+        font-family: 'Open Sans', sans-serif;
+    }
     .btn_main {
         flex-direction: column-reverse;
     }
@@ -146,6 +202,20 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+        color: #666666;
+        font-size: 14px;
+        line-height: 1.80857;
+        font-weight: normal;
+        overflow-x: hidden;
+        font-family: 'Open Sans', sans-serif;
+    }
     .header_section {
         background-size: 100% 100%;
     }
@@ -183,6 +253,20 @@
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+        color: #666666;
+        font-size: 14px;
+        line-height: 1.80857;
+        font-weight: normal;
+        overflow-x: hidden;
+        font-family: 'Open Sans', sans-serif;
+    }
     .header_section {
         background-size: 100% 100%;
     }
@@ -293,6 +377,20 @@
 }
 
 @media (max-width: 575px) {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+        color: #666666;
+        font-size: 14px;
+        line-height: 1.80857;
+        font-weight: normal;
+        overflow-x: hidden;
+        font-family: 'Open Sans', sans-serif;
+    }
     .header_section {
         background-size: 100% 100%;
     }

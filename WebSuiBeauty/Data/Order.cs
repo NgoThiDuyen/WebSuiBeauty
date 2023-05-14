@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace WebSuiBeauty.Models
+namespace WebSuiBeauty.Data
 {
     [Table("Order")]
     public class Order

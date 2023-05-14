@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Web;
-using WebSuiBeauty.Models.Abstract;
+using WebSuiBeauty.Data.Abstract;
 
-namespace WebSuiBeauty.Models
+namespace WebSuiBeauty.Data
 {
-    [Table("Content")]
-    public class Content : Auditable
+    [Table("Products")]
+
+    public class Product : Auditable
     {
         [Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { set; get; }
 
         [Required]
@@ -21,7 +23,6 @@ namespace WebSuiBeauty.Models
 
         [Required]
         [MaxLength(256)]
-        [Column(TypeName = "varchar")]
         public string Alias { set; get; }
 
         [Required]
@@ -30,18 +31,32 @@ namespace WebSuiBeauty.Models
         [MaxLength(256)]
         public string Image { set; get; }
 
+        [Column(TypeName = "xml")]
+        public string MoreImages { set; get; }
+
+        public decimal Price { set; get; }
+
+        public decimal? PromotionPrice { set; get; }
+
+        public int? Warranty { set; get; }
+
         [MaxLength(500)]
         public string Description { set; get; }
-
-        public string Post { set; get; }
+        public string Content { set; get; }
 
         public bool? HomeFlag { set; get; }
         public bool? HotFlag { set; get; }
         public int? ViewCount { set; get; }
 
-        [ForeignKey("CategoryId")]
-        public virtual ContentCategory ContentCategory { set; get; }
+        public string Tags { set; get; }
 
-        public virtual IEnumerable<ContentTag> PostTags { set; get; }
+        public int Quantity { set; get; }
+
+        public decimal OriginalPrice { set; get; }
+
+        [ForeignKey("CategoryId")]
+        public virtual ProductCategory ProductCategory { set; get; }
+
+        public virtual IEnumerable<ProductTag> ProductTags { set; get; }
     }
 }

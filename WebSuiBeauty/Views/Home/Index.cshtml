@@ -67,120 +67,23 @@
             </div>
             <div class="product_section_2 layout_padding">
                 <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="product_box">
-                            <h4 class="bursh_text">Nước Tẩy Trang</h4>
-                            <img src="~/Assets/Images/img-1.png" class="image_1">
-                            <div class="btn_main">
-                                <div class="buy_bt">
-                                    <ul>
-                                        <li><a href="#">Mua Ngay</a></li>
-                                    </ul>
-                                </div>
-                                <h3 class="price_text"> Giá:290000</h3>
+                    @foreach (var item in (List<WebSuiBeauty.Data.Product>)@ViewBag.SanPham)
+            {
+                <div class="col-lg-3 col-sm-6">
+                    <div class="product_box">
+                        <h4 class="bursh_text">@item.Name</h4>
+                        <img src="~/Assets/Images/img-1.png" class="image_1">
+                        <div class="btn_main">
+                            <div class="buy_bt">
+                                <ul>
+                                    <li><a href="#">Mua Ngay</a></li>
+                                </ul>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="product_box">
-                            <h4 class="bursh_text">Phấn Phủ </h4>
-                            <img src="~/Assets/Images/img-2.png" class="image_1">
-                            <div class="btn_main">
-                                <div class="buy_bt">
-                                    <ul>
-                                        <li><a href="#">Mua Ngay</a></li>
-                                    </ul>
-                                </div>
-                                <h3 class="price_text">Giá:200000</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="product_box">
-                            <h4 class="bursh_text">Kem Nền BB</h4>
-                            <img src="~/Assets/Images/img-3.png" class="image_1">
-                            <div class="btn_main">
-                                <div class="buy_bt">
-                                    <ul>
-                                        <li><a href="#">Mua Ngay</a></li>
-                                    </ul>
-                                </div>
-                                <h3 class="price_text">Giá:150000</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="product_box">
-                            <h4 class="bursh_text">Sữa Rửa Mặt Cerave</h4>
-                            <img src="~/Assets/Images/img-4.png" class="image_1">
-                            <div class="btn_main">
-                                <div class="buy_bt">
-                                    <ul>
-                                        <li><a href="#">Mua Ngay</a></li>
-                                    </ul>
-                                </div>
-                                <h3 class="price_text">Giá:250000</h3>
-                            </div>
+                            <h3 class="price_text"> Giá:@item.Price</h3>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="product_box">
-                            <h4 class="bursh_text">Tẩy Da Chết</h4>
-                            <img src="~/Assets/Images/img-5.png" class="image_1">
-                            <div class="btn_main">
-                                <div class="buy_bt">
-                                    <ul>
-                                        <li><a href="#">Mua Ngay</a></li>
-                                    </ul>
-                                </div>
-                                <h3 class="price_text">Giá:180000</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="product_box">
-                            <h4 class="bursh_text">Son Kem Blackrouge</h4>
-                            <img src="~/Assets/Images/img-6.png" class="image_1">
-                            <div class="btn_main">
-                                <div class="buy_bt">
-                                    <ul>
-                                        <li><a href="#">Mua Ngay</a></li>
-                                    </ul>
-                                </div>
-                                <h3 class="price_text">Giá:150000</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="product_box">
-                            <h4 class="bursh_text">Son Dưỡng Vasaline</h4>
-                            <img src="~/Assets/Images/img-7.png" class="image_1">
-                            <div class="btn_main">
-                                <div class="buy_bt">
-                                    <ul>
-                                        <li><a href="#">Mua Ngay</a></li>
-                                    </ul>
-                                </div>
-                                <h3 class="price_text">Giá:60000</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="product_box">
-                            <h4 class="bursh_text">Phấn Má Hồng</h4>
-                            <img src="~/Assets/Images/img-8.png" class="image_1">
-                            <div class="btn_main">
-                                <div class="buy_bt">
-                                    <ul>
-                                        <li><a href="#">Mua Ngay</a></li>
-                                    </ul>
-                                </div>
-                                <h3 class="price_text">Giá:110000</h3>
-                            </div>
-                        </div>
-                    </div>
+            }
                 </div>
                 <div class="seemore_bt"><a href="#">Xem Thêm</a></div>
             </div>

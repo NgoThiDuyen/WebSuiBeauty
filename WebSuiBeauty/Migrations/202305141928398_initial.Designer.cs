@@ -13,7 +13,7 @@ namespace WebSuiBeauty.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202305140932331_initial"; }
+            get { return "202305141928398_initial"; }
         }
         
         string IMigrationMetadata.Source

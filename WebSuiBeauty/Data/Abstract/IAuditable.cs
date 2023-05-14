@@ -10,11 +10,11 @@ namespace WebSuiBeauty.Data.Abstract
     {
         DateTime? CreatedDate { set; get; }
         string CreatedBy { set; get; }
-        DateTime? UpdatedDate { set; get; }
-        string UpdatedBy { set; get; }
+        DateTime? ModifiedDate { set; get; }
+        string ModifiedBy { set; get; }
 
-        string MetaKeyword { set; get; }
-        string MetaDescription { set; get; }
+        string MetaKeywords { set; get; }
+        string MetaDescriptions { set; get; }
 
         bool Status { set; get; }
     }

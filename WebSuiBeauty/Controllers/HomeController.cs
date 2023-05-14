@@ -3,27 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebSuiBeauty.Data;
 
 namespace WebSuiBeauty.Controllers
 {
     public class HomeController : Controller
     {
+        WebSuiBeautyDbContext db = new WebSuiBeautyDbContext();
+
+        // GET: Home
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.SanPham = db.Products.ToList();
             return View();
         }
     }

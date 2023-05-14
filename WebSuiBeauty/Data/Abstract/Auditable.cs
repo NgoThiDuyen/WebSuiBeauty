@@ -13,16 +13,16 @@ namespace WebSuiBeauty.Data.Abstract
         [MaxLength(256)]
         public string CreatedBy { set; get; }
 
-        public DateTime? UpdatedDate { set; get; }
+        public DateTime? ModifiedDate { set; get; }
 
         [MaxLength(256)]
-        public string UpdatedBy { set; get; }
+        public string ModifiedBy { set; get; }
 
         [MaxLength(256)]
-        public string MetaKeyword { set; get; }
+        public string MetaKeywords { set; get; }
 
         [MaxLength(256)]
-        public string MetaDescription { set; get; }
+        public string MetaDescriptions { set; get; }
 
         public bool Status { set; get; }
     }

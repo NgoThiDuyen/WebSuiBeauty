@@ -12,7 +12,7 @@ namespace WebSuiBeauty.Data
     public class ProductCategory : Auditable
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { set; get; }
 
         [Required]

@@ -37,26 +37,30 @@
                         </div>*@
                         <div class="login-form-content">
                             <h2 style="font-size:2rem; font-weight:bold">ĐĂNG NHẬP</h2>
+
                             @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "signin-form" }))
                             {
-                                <form action="#" class="signin-form" method="post">
-                                    <div class="one-frm">
-                                        <input type="email" name="Email" placeholder="Email của bạn" required="" autofocus>
+                                <div class="one-frm">
+                                    <input type="email" name="Email" required placeholder="Email của bạn" autofocus>
+                                </div>
+                                <div class="one-frm">
+                                    <input type="password" name="Password" required placeholder="Mật khẩu">
+                                </div>
+                                <label class="check-remaind">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                    <p class="remember">Nhớ mật khẩu</p>
+                                </label>
+                                if (!ViewData.ModelState.IsValid)
+                                {
+                                    <div style="color: red" class="validation-summary-errors">
+                                        @Html.ValidationSummary()
                                     </div>
-                                    <div class="one-frm">
-                                        <input type="password" name="Password" placeholder="Mật khẩu" required="">
-                                    </div>
-                                    <label class="check-remaind">
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                        <p class="remember">Nhớ mật khẩu</p>
-
-                                    </label>
-                                    <button class="btn btn-style mt-3">Đăng nhập </button>
-                                    <p class="already">Bạn chưa có tài khoản? <a href="@(Url.Action("Register", "Account"))">Đăng ký</a></p>
-                                </form>
+                                }
+                                <button type="submit" class="btn btn-style mt-3">Đăng nhập </button>
+                                <p class="already">Bạn chưa có tài khoản? <a href="@(Url.Action("Register", "Account"))">Đăng ký</a></p>
                             }
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebSuiBeauty.Data;
+using WebSuiBeauty.Models;
 
 namespace WebSuiBeauty.Controllers
 {
@@ -15,32 +17,63 @@ namespace WebSuiBeauty.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Login(FormCollection formColl)
+        {
+            string usrName = formColl["Email"];
+            string Pass = formColl["Password"];
+
+            if (ModelState.IsValid)
+            {
+                var cust = (from ct in db.Customers
+                            where (ct.Email == usrName && ct.Password == Pass)
+                            select ct).SingleOrDefault();
+
+                if (cust != null)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Tài khoản hoặc mật khẩu không chính xác");
+                    return View();
+                }
+
+            }
+            return View();
+        }
+
         public ActionResult Register()
         {
             return View();
         }
+        [HttpPost]
 
-        //[HttpPost]
-        //public ActionResult Login(FormCollection formColl)
-        //{
-        //    string usrName = formColl["UserName"];
-        //    string Pass = formColl["Password"];
+        public ActionResult Register(CustomerVM model)
+        {
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        var cust = (from m in db.Customers
-        //                    where (m.UserName == usrName && m.Password == Pass)
-        //                    select m).SingleOrDefault();
-
-        //        if (cust != null)
-        //        {
-        //            TempShpData.UserID = cust.CustomerID;
-        //            Session["username"] = cust.UserName;
-        //            return RedirectToAction("Index", "Home");
-        //        }
-
-        //    }
-        //    return View();
-        //}
+            if (ModelState.IsValid)
+            {
+                Customer customer = new Customer
+                {
+                    Id = model.Id,
+                    First_Name = model.First_Name,
+                    Last_Name = model.Last_Name,
+                    Password = model.Password,
+                    DateOfBirth = model.DateofBirth,
+                    Country = model.Country,
+                    City = model.City,
+                    Email = model.Email,
+                    Phone = model.Phone,
+                    Address = model.Address,
+                    Status = true,
+                };
+                db.Customers.Add(customer);
+                db.SaveChanges();
+                return RedirectToAction("Login", "Account");
+            }
+            return PartialView("_Error");
+        }
     }
 }

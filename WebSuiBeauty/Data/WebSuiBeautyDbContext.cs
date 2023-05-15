@@ -20,5 +20,6 @@ namespace WebSuiBeauty.Data
         public DbSet<ContentTag> ContentTags { get; set; }
         public DbSet<ContentCategory> ContentCategories { get; set; }
         public DbSet<ContactDetail> ContactDetails { get; set; }
+        public DbSet<Customer> Customers { get; set; }
     }
 }

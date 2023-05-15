@@ -140,6 +140,10 @@
     <Compile Include="Migrations\202305150232403_add-custommer.designer.cs">
       <DependentUpon>202305150232403_add-custommer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305150242396_custommer.cs" />
+    <Compile Include="Migrations\202305150242396_custommer.designer.cs">
+      <DependentUpon>202305150242396_custommer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Data\Abstract\Auditable.cs" />
     <Compile Include="Data\Abstract\IAuditable.cs" />
@@ -155,6 +159,7 @@
     <Compile Include="Data\ProductTag.cs" />
     <Compile Include="Data\Tag.cs" />
     <Compile Include="Data\WebSuiBeautyDbContext.cs" />
+    <Compile Include="Models\CustomerVM.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -220,6 +225,7 @@
     <Content Include="Content\owl.carousel.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -234,16 +240,30 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery.mCustomScrollbar.concat.min.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizer.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\MyCustom.js" />
     <Content Include="Scripts\plugin.js" />
+    <Content Include="Scripts\plugins\flot\excanvas.min.js" />
+    <Content Include="Scripts\plugins\flot\flot-data.js" />
+    <Content Include="Scripts\plugins\flot\jquery.flot.js" />
+    <Content Include="Scripts\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="Scripts\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="Scripts\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Scripts\plugins\morris\morris-data.js" />
+    <Content Include="Scripts\plugins\morris\morris.js" />
+    <Content Include="Scripts\plugins\morris\morris.min.js" />
+    <Content Include="Scripts\plugins\morris\raphael.min.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\sidebar.js" />
     <Content Include="Scripts\slider-setting.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -259,10 +279,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -297,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305150232403_add-custommer.resx">
       <DependentUpon>202305150232403_add-custommer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305150242396_custommer.resx">
+      <DependentUpon>202305150242396_custommer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

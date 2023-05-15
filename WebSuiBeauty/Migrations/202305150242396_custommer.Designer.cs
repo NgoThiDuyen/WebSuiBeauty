@@ -7,13 +7,13 @@ namespace WebSuiBeauty.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class addcustommer1 : IMigrationMetadata
+    public sealed partial class custommer : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addcustommer1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(custommer));
         
         string IMigrationMetadata.Id
         {
-            get { return "202305150234405_add-custommer1"; }
+            get { return "202305150242396_custommer"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,0 +1,92 @@
+﻿@model IEnumerable<WebSuiBeauty.Data.Product>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+</head>
+
+<style>
+    .custom-table {
+        border: 1px solid #000;
+    }
+
+    .custom-row {
+        background-color: pink;
+        border: 1px solid #000;
+    }
+
+    .custom-button {
+        width: 80px;
+    }
+</style>
+
+<body>
+    <a class="btn btn-primary custom-button" style="margin-bottom:10px" href="@Url.Action("Create", "ProductAdmin")">Thêm</a>
+    <table class="table custom-table table-bordered">
+        <tr class="text-center custom-row">
+            <th>Danh mục</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá tiền</th>
+            <th>Giảm giá (%)</th>
+            <th>Bảo hành (năm)</th>
+            <th>Mô tả</th>
+            <th>Số lượng</th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>Thao tác</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="col-1">
+                    @Html.DisplayFor(modelItem => item.ProductCategory.Name)
+                </td>
+                <td class="col-1">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td class="col-1 text-center">
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td class="col-1 text-center">
+                    @Html.DisplayFor(modelItem => item.PromotionPrice)
+                </td>
+                <td class="col-1 text-center">
+                    @Html.DisplayFor(modelItem => item.Warranty)
+                </td>
+                <td class="col-2">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td class="col-1 text-center">
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td class="col-1 ">
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td class="col-1 text-center" style="color: forestgreen;">
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td class="col-1 text-center">
+                    <a class="btn btn-warning custom-button" style="margin-bottom: 10px" href="@Url.Action("Edit", "ProductAdmin", new { id = item.Id })">Sửa</a>
+                    <a class="btn btn-success custom-button" style="margin-bottom: 10px" href="@Url.Action("Details", "ProductAdmin", new { id = item.Id })">Chi tiết</a>
+                    <a class="btn btn-danger custom-button" style="margin-bottom: 10px" href="@Url.Action("Delete", "ProductAdmin", new { id = item.Id })">Xóa</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</body>
+</html>

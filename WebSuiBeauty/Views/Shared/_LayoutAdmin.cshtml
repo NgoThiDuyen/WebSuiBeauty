@@ -3,15 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - SuiBeauty</title>
+    <title>@ViewBag.Title - SuiBeautyAdmin</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Assets/Style/responsive.css" rel="stylesheet" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="~/Content/bootstrap.min.css" type="text/css" rel="stylesheet" />
     <link href="~/Assets/Style/style.css" rel="stylesheet" />
-    <link href="~/Assets/Style/responsive.css" rel="stylesheet" />
     <link href="~/Content/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans:400,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -38,11 +34,11 @@
             <nav class="navbar fixed-top justify-content-between">
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="index.html">Trang chủ</a>
-                    <a href="products.html">Sản phẩm</a>
-                    <a href="about.html">Giới thiệu</a>
-                    <a href="client.html">Khách hàng</a>
-                    <a href="contact.html">Liên hệ</a>
+                    <a href="~/AdminDashboard/Index">Trang chủ</a>
+                    <a href="~/ProductAdmin/Index">Sản phẩm</a>
+                    <a href="~/ProductCategoriesAdmin/Index">Danh mục sản phẩm</a>
+                    <a href="~/Views/ProductAdmin/Index.cshtml">Khách hàng</a>
+                    <a href="~/Views/ProductAdmin/Index.cshtml">Đơn hàng</a>
                 </div>
                 <span class="toggle_icon" style="padding-left:1rem" onclick="openNav()"><img style="height: 70%;width:70%" src="~/Assets/Images/toggle-icon.png"></span>
                 <a class="logo" href="index.html"><img src="~/Assets/Images/logo.png"></a>
@@ -59,22 +55,14 @@
         </div>
     </div>
     <div class="container-fluid body-content">
+        <div class="container" style="height: 5vw"></div>
         @RenderBody()
         <hr />
     </div>
     <!-- Javascript files-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/plugin.js"></script>
-    <!-- sidebar -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/custom.js"></script>
-    <!-- javascript -->
-    <script src="js/owl.carousel.js"></script>
-    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
     <script>
         function openNav() {
             document.getElementById("mySidenav").style.width = "100%";
@@ -101,8 +89,5 @@
             }
         });
     </script>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>

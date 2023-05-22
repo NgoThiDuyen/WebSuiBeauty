@@ -48,8 +48,8 @@ namespace WebSuiBeauty.Controllers
         {
             return View();
         }
-        [HttpPost]
 
+        [HttpPost]
         public ActionResult Register(CustomerVM model)
         {
 
@@ -71,7 +71,7 @@ namespace WebSuiBeauty.Controllers
                 };
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Login", "Account");
+                return Redirect("/Account/Login");
             }
             return PartialView("_Error");
         }

@@ -127,6 +127,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\AdminDashboardController.cs" />
+    <Compile Include="Areas\ProductAdminController.cs" />
+    <Compile Include="Areas\ProductCategoriesAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\Customer.cs" />
     <Compile Include="Global.asax.cs">
@@ -160,6 +163,7 @@
     <Compile Include="Data\Tag.cs" />
     <Compile Include="Data\WebSuiBeautyDbContext.cs" />
     <Compile Include="Models\CustomerVM.cs" />
+    <Compile Include="Models\ProductVM.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -193,6 +197,7 @@
     <Content Include="Assets\Style\register_style.css" />
     <Content Include="Assets\Style\responsive.css" />
     <Content Include="Assets\Style\style.css" />
+    <Content Include="Assets\Style\style_admin.css" />
     <Content Include="Assets\Style\style_login.css" />
     <Content Include="bin\WebSuiBeauty.dll" />
     <Content Include="bin\WebSuiBeauty.pdb" />
@@ -280,6 +285,18 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_Error.cshtml" />
+    <Content Include="Views\ProductAdmin\Create.cshtml" />
+    <Content Include="Views\ProductAdmin\Delete.cshtml" />
+    <Content Include="Views\ProductAdmin\Details.cshtml" />
+    <Content Include="Views\ProductAdmin\Edit.cshtml" />
+    <Content Include="Views\ProductAdmin\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\AdminDashboard\Index.cshtml" />
+    <Content Include="Views\ProductCategoriesAdmin\Create.cshtml" />
+    <Content Include="Views\ProductCategoriesAdmin\Delete.cshtml" />
+    <Content Include="Views\ProductCategoriesAdmin\Details.cshtml" />
+    <Content Include="Views\ProductCategoriesAdmin\Edit.cshtml" />
+    <Content Include="Views\ProductCategoriesAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

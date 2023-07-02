@@ -12,11 +12,9 @@ namespace WebSuiBeauty.Models
         public int Id { get; set; }
         [Display(Name = "Họ và tên đệm")]
         [Required(ErrorMessage = "Họ và tên đệm không được để trống")]
-        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Họ và tên đệm không hợp lệ")]
         public string First_Name { get; set; }
         [Display(Name = "Tên")]
         [Required(ErrorMessage = "Tên không được để trống")]
-        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Tên không hợp lệ")]
         public string Last_Name { get; set; }
         [Required(ErrorMessage ="Email không được để trống")]
         [DataType(DataType.EmailAddress, ErrorMessage = "Hãy nhập đúng địa chỉ email")]
@@ -45,9 +43,9 @@ namespace WebSuiBeauty.Models
         [Display(Name = "Địa chỉ")]
         [Required(ErrorMessage = "Địa chỉ không được để trống")]
         public string Address { get; set; }
-        //[Display(Name = "Picture")]
-        //public string PicturePath { get; set; }
-        //public HttpPostedFileBase Picture { get; set; }
+        [Display(Name = "Avatar")]
+        public string Avatar { get; set; }
+        public HttpPostedFileBase AvatarUpload { get; set; }
         public bool Status { get; set; }
         public string Notes { get; set; }
     }

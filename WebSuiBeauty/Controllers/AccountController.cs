@@ -12,6 +12,28 @@ namespace WebSuiBeauty.Controllers
     public class AccountController : Controller
     {
         WebSuiBeautyDbContext db = new WebSuiBeautyDbContext();
+
+        public ActionResult Index()
+        {
+            //this.GetDefaultData();
+
+            var usr = db.Customers.Find(TempDataVM.UserId);
+            return View(usr);
+
+        }
+
+        [HttpPost]
+        public ActionResult Update(Customer cust)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(cust).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                Session["username"] = cust.Email;
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
+        }
         // GET: Account
         public ActionResult Login()
         {
@@ -32,6 +54,8 @@ namespace WebSuiBeauty.Controllers
 
                 if (cust != null)
                 {
+                    TempDataVM.UserId = cust.Id;
+                    Session["username"] = cust.Email;
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -52,7 +76,6 @@ namespace WebSuiBeauty.Controllers
         [HttpPost]
         public ActionResult Register(CustomerVM model)
         {
-
             if (ModelState.IsValid)
             {
                 Customer customer = new Customer
@@ -69,11 +92,20 @@ namespace WebSuiBeauty.Controllers
                     Address = model.Address,
                     Status = true,
                 };
+
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return Redirect("/Account/Login");
             }
             return PartialView("_Error");
+        }
+
+        public ActionResult Logout()
+        {
+            Session["username"] = null;
+            TempDataVM.UserId = 0;
+            TempDataVM.items = null;
+            return RedirectToAction("Index", "Home");
         }
     }
 }

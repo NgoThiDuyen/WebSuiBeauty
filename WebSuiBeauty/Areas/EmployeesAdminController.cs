@@ -7,138 +7,110 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebSuiBeauty.Data;
-using WebSuiBeauty.Models;
 
 namespace WebSuiBeauty.Areas
 {
-    public class ProductCategoriesAdminController : Controller
+    public class EmployeesAdminController : Controller
     {
         private WebSuiBeautyDbContext db = new WebSuiBeautyDbContext();
 
-        // GET: ProductCategoriesAdmin
+        // GET: EmployeesAdmin
         public ActionResult Index()
         {
-            return View(db.ProductCategories.ToList());
+            return View(db.Employees.ToList());
         }
 
-        // GET: ProductCategoriesAdmin/Details/5
+        // GET: EmployeesAdmin/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductCategory productCategory = db.ProductCategories.Find(id);
-            if (productCategory == null)
+            Employee employee = db.Employees.Find(id);
+            if (employee == null)
             {
                 return HttpNotFound();
             }
-            return View(productCategory);
+            return View(employee);
         }
 
-        // GET: ProductCategoriesAdmin/Create
+        // GET: EmployeesAdmin/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ProductCategoriesAdmin/Create
+        // POST: EmployeesAdmin/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CategoryVM model)
+        public ActionResult Create([Bind(Include = "EmpID,FirstName,LastName,DateofBirth,Gender,Email,Address,Phone,PicturePath")] Employee employee)
         {
             if (ModelState.IsValid)
             {
-                ProductCategory category = new ProductCategory
-                {
-                    Name = model.Name,
-                    Alias = model.Alias,
-                    ParentId = model.ParentId,
-                    Description = model.Description,
-                    Status = model.Status,
-                };
-                db.ProductCategories.Add(category);
+                db.Employees.Add(employee);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(model);
+            return View(employee);
         }
 
-        // GET: ProductCategoriesAdmin/Edit/5
+        // GET: EmployeesAdmin/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductCategory productCategory = db.ProductCategories.Find(id);
-            if (productCategory == null)
+            Employee employee = db.Employees.Find(id);
+            if (employee == null)
             {
                 return HttpNotFound();
             }
-            CategoryVM category = new CategoryVM
-            {
-                Id = productCategory.Id, 
-                Name = productCategory.Name, 
-                Alias = productCategory.Alias,
-                ParentId = productCategory.ParentId,
-                Description = productCategory.Description,
-                Status = productCategory.Status,
-            };
-            return View(category);
+            return View(employee);
         }
 
-        // POST: ProductCategoriesAdmin/Edit/5
+        // POST: EmployeesAdmin/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(CategoryVM model)
+        public ActionResult Edit([Bind(Include = "EmpID,FirstName,LastName,DateofBirth,Gender,Email,Address,Phone,PicturePath")] Employee employee)
         {
             if (ModelState.IsValid)
             {
-                ProductCategory productCategory = new ProductCategory
-                {
-                    Id= model.Id,
-                    Name = model.Name,
-                    Alias = model.Alias,
-                    ParentId = model.ParentId,
-                    Description = model.Description,
-                    Status = model.Status,
-
-                };
-                db.Entry(productCategory).State = EntityState.Modified;
+                db.Entry(employee).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(model);
+            return View(employee);
         }
 
-        // GET: ProductCategoriesAdmin/Delete/5
+        // GET: EmployeesAdmin/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductCategory productCategory = db.ProductCategories.Find(id);
-            if (productCategory == null)
+            Employee employee = db.Employees.Find(id);
+            if (employee == null)
             {
                 return HttpNotFound();
             }
-            return View(productCategory);
+            return View(employee);
         }
 
-        // POST: ProductCategoriesAdmin/Delete/5
+        // POST: EmployeesAdmin/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ProductCategory productCategory = db.ProductCategories.Find(id);
-            db.ProductCategories.Remove(productCategory);
+            Employee employee = db.Employees.Find(id);
+            db.Employees.Remove(employee);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

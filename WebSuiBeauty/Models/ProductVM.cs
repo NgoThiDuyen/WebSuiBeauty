@@ -42,6 +42,7 @@ namespace WebSuiBeauty.Models
         [DisplayName("Số lượng")]
         [Required(ErrorMessage = "Vui lòng nhập số lượng sản phẩm")]
         public int Quantity { set; get; }
+        public bool IsCheck { set; get; }
         [ForeignKey("CategoryId")]
         public virtual ProductCategory ProductCategory { set; get; }
     }

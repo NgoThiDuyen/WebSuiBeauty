@@ -19,6 +19,7 @@ namespace WebSuiBeauty.Areas
         // GET: ProductAdmin
         public ActionResult Index()
         {
+            
             var products = db.Products.Include(p => p.ProductCategory);
             return View(products.ToList());
         }
@@ -47,6 +48,7 @@ namespace WebSuiBeauty.Areas
                 Description = product.Description,
                 Status = product.Status,
                 Image = product.Image,
+                CreatedDate = product.CreatedDate,
 
             };
             ViewBag.CategoryId = new SelectList(db.ProductCategories, "Id", "Name", product.CategoryId);
@@ -59,7 +61,7 @@ namespace WebSuiBeauty.Areas
             {
                 if (model.ImageUpload != null)
                 {
-                    string filePath = Path.Combine("~Assets/Images", Guid.NewGuid().ToString() + Path.GetExtension(model.ImageUpload.FileName));
+                    string filePath = Path.Combine("Assets", Guid.NewGuid().ToString() + Path.GetExtension(model.ImageUpload.FileName));
                     model.ImageUpload.SaveAs(Server.MapPath(filePath));
                     Product product = new Product
                     {
@@ -73,6 +75,7 @@ namespace WebSuiBeauty.Areas
                         Quantity = model.Quantity,
                         Description = model.Description,
                         Status = model.Status,
+                        CreatedDate=model.CreatedDate,
                     };
                     db.Entry(product).State = System.Data.Entity.EntityState.Unchanged;
                     db.SaveChanges();
@@ -91,6 +94,7 @@ namespace WebSuiBeauty.Areas
                         Quantity = model.Quantity,
                         Description = model.Description,
                         Status = model.Status,
+                        CreatedDate = model.CreatedDate,
                     };
                     db.Entry(product).State = System.Data.Entity.EntityState.Unchanged;
                     db.SaveChanges();
@@ -117,10 +121,11 @@ namespace WebSuiBeauty.Areas
         {
             if (ModelState.IsValid)
             {
+                string filePath = model.Image;
                 if (model.ImageUpload != null && model.ImageUpload.ContentLength>0)
                 {
-                    string filePath = Path.Combine(Server.MapPath("/Assets/Image"), Path.GetFileName(model.ImageUpload.FileName));
-                    model.ImageUpload.SaveAs(filePath);
+                    filePath = Path.Combine("~/Assets/Images", Guid.NewGuid().ToString() + Path.GetExtension(model.ImageUpload.FileName));
+                    model.ImageUpload.SaveAs(Server.MapPath(filePath));
                     Product product = new Product
                     {
                         Name = model.Name,
@@ -131,7 +136,7 @@ namespace WebSuiBeauty.Areas
                         Warranty = model.Warranty,
                         Quantity = model.Quantity,
                         Description = model.Description,
-                        Status = true,
+                        Status = model.Status,
                     };
                     db.Products.Add(product);
                     db.SaveChanges();
@@ -148,7 +153,7 @@ namespace WebSuiBeauty.Areas
                         Warranty = model.Warranty,
                         Quantity = model.Quantity,
                         Description = model.Description,
-                        Status = true,
+                        Status = model.Status,
                     };
                     db.Products.Add(product);
                     db.SaveChanges();
@@ -200,9 +205,11 @@ namespace WebSuiBeauty.Areas
         {
             if (ModelState.IsValid)
             {
-                if (model.ImageUpload != null)
+              
+                string filePath = model.Image;
+                if (model.ImageUpload != null && model.ImageUpload.ContentLength > 0)
                 {
-                    string filePath = Path.Combine("~Assets/Images", Guid.NewGuid().ToString() + Path.GetExtension(model.ImageUpload.FileName));
+                    filePath = Path.Combine("~/Assets/Images", Guid.NewGuid().ToString() + Path.GetExtension(model.ImageUpload.FileName));
                     model.ImageUpload.SaveAs(Server.MapPath(filePath));
                     Product product = new Product
                     {
@@ -217,7 +224,7 @@ namespace WebSuiBeauty.Areas
                         Description = model.Description,
                         Status = model.Status,
                     };
-                    db.Entry(model).State = EntityState.Modified;
+                    db.Entry(product).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -233,9 +240,10 @@ namespace WebSuiBeauty.Areas
                         Warranty = model.Warranty,
                         Quantity = model.Quantity,
                         Description = model.Description,
+                        Image = filePath,
                         Status = model.Status,
                     };
-                    db.Entry(model).State = EntityState.Modified;
+                    db.Entry(product).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }

@@ -12,17 +12,28 @@
 </head>
 <style>
     .custom-button {
-        justify-content:center;
+        justify-content: center;
         align-items: center;
         width: 180px;
     }
-    .title{
-        font-size:3rem;
+
+    .title {
+        font-size: 3rem;
         color: deeppink;
-        font-weight:bold;
+        font-weight: bold;
     }
 </style>
 <body>
-       <h1 class="text-center title">Trang chủ ADMIN SuiBeautyShop</h1>
+    <h1 class="text-center title">Trang chủ ADMIN SuiBeautyShop</h1>
+
 </body>
+
+<script>
+    $(document).ready(function () {
+        $("#sidebarCollapse").on("click", function () {
+            $("#sidebar").toggleClass("active");
+            $(this).toggleClass("active");
+        });
+    });
+</script>
 

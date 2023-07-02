@@ -8,25 +8,22 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <style>
+        .custom-table {
+            border: 1px solid #000;
+        }
 
+        .custom-row {
+            background-color: pink;
+            border: 1px solid #000;
+        }
+
+        .custom-button {
+            width: 80px;
+        }
+    </style>
 </head>
-
-<style>
-    .custom-table {
-        border: 1px solid #000;
-    }
-
-    .custom-row {
-        background-color: pink;
-        border: 1px solid #000;
-    }
-
-    .custom-button {
-        width: 80px;
-    }
-</style>
 
 <body>
     <a class="btn btn-primary custom-button" style="margin-bottom:10px" href="@Url.Action("Create", "ProductAdmin")">Thêm</a>
@@ -34,6 +31,7 @@
         <tr class="text-center custom-row">
             <th>Danh mục</th>
             <th>Tên sản phẩm</th>
+            <th>Hình ảnh</th>
             <th>Giá tiền</th>
             <th>Giảm giá (%)</th>
             <th>Bảo hành (năm)</th>
@@ -57,11 +55,17 @@
                 <td class="col-1">
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
-                <td class="col-1 text-center">
-                    @Html.DisplayFor(modelItem => item.Price)
+                <td>
+                    @if (!string.IsNullOrEmpty(item.Image))
+                    {
+                        <img src="@Url.Content(item.Image)" alt="Hình ảnh" />
+                    }
                 </td>
                 <td class="col-1 text-center">
-                    @Html.DisplayFor(modelItem => item.PromotionPrice)
+                    @item.Price.ToString("N0")đ
+                </td>
+                <td class="col-1 text-center">
+                    @Math.Floor(item.PromotionPrice??0)
                 </td>
                 <td class="col-1 text-center">
                     @Html.DisplayFor(modelItem => item.Warranty)
@@ -73,10 +77,10 @@
                     @Html.DisplayFor(modelItem => item.Quantity)
                 </td>
                 <td class="col-1 ">
-                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                    @((item.CreatedDate ?? DateTime.Now).ToString("dd/MM/yyyy"))
                 </td>
-                <td class="col-1 text-center" style="color: forestgreen;">
-                    @Html.DisplayFor(modelItem => item.Status)
+                <td class="col-1 text-center" style="color:@(item.Status ? "forestgreen" : "red"); font-weight:bold">
+                    @(item.Status?"Còn hàng":"Hết hàng")
                 </td>
                 <td class="col-1 text-center">
                     <a class="btn btn-warning custom-button" style="margin-bottom: 10px" href="@Url.Action("Edit", "ProductAdmin", new { id = item.Id })">Sửa</a>

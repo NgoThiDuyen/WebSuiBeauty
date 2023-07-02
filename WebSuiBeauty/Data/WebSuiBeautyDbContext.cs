@@ -21,5 +21,9 @@ namespace WebSuiBeauty.Data
         public DbSet<ContentCategory> ContentCategories { get; set; }
         public DbSet<ContactDetail> ContactDetails { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<AdminLogin> AdminLogins { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
+    
 }

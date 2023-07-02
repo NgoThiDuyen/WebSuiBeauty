@@ -1,4 +1,4 @@
-﻿
+﻿@model WebSuiBeauty.Data.Product
 @{
     ViewBag.Title = "Trang chủ";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,7 +10,7 @@
         <div id="carouselSlide" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="container-fluid">
+                    <div class="container">
                         <div class="row">
                             <div class="col-sm-6">
                                 <h1 class="banner_taital">Sui <br>Beauty</h1>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="container-fluid">
+                    <div class="container">
                         <div class="row">
                             <div class="col-sm-6">
                                 <h1 class="banner_taital">Sui <br>Beauty</h1>
@@ -43,7 +43,7 @@
     <!-- banner section end -->
     <!-- product section start -->
     <div class="product_section layout_padding">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <h1 class="product_taital">Sản Phẩm</h1>
@@ -52,22 +52,25 @@
             <div class="product_section_2 layout_padding">
                 <div class="row">
                     @foreach (var item in (List<WebSuiBeauty.Data.Product>)@ViewBag.SanPham)
-            {
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product_box">
-                        <h4 class="bursh_text">@item.Name</h4>
-                        <img src="~/Assets/Images/img-1.png" class="image_1">
-                        <div class="btn_main">
-                            <div class="buy_bt">
-                                <ul>
-                                    <li><a href="#">Mua Ngay</a></li>
-                                </ul>
+                    {
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="product_box">
+                                <h4 class="bursh_text">@item.Name</h4>
+                                @if (!string.IsNullOrEmpty(item.Image))
+                                {
+                                    <img src="@Url.Content(item.Image)" alt="Hình ảnh" />
+                                }
+                                <div class="btn_main">
+                                    <div class="buy_bt">
+                                        <ul>
+                                            <li><a href="#">Mua Ngay</a></li>
+                                        </ul>
+                                    </div>
+                                    <h3 class="price_text"> Giá:@item.Price</h3>
+                                </div>
                             </div>
-                            <h3 class="price_text"> Giá:@item.Price</h3>
                         </div>
-                    </div>
-                </div>
-            }
+                    }
                 </div>
                 <div class="seemore_bt"><a href="#">Xem Thêm</a></div>
             </div>
@@ -76,7 +79,7 @@
     <!-- product section end -->
     <!-- about section start -->
     <div class="about_section layout_padding">
-        <div class="container-fluid">
+        <div class="container">
             <div class="about_section_main">
                 <div class="row">
                     <div class="col-md-6">
@@ -96,7 +99,7 @@
     <!-- about section end -->
     <!-- contact section start -->
     <div class="contact_section layout_padding">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <h1 class="contact_taital">Hỗ Trợ Khách Hàng</h1>
@@ -130,7 +133,7 @@
     <!-- contact section end -->
     <!-- footer section start -->
     <div class="footer_section layout_padding">
-        <div class="container-fluid">
+        <div class="container">
             <div class="footer_logo"><a href="index.html"><img src="images/footer-logo.png"></a></div>
             <div class="contact_section_2">
                 <div class="row">
